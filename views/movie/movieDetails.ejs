@@ -21,7 +21,8 @@
         <div class="p-2">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><span style="font-weight: bold;">Title:</span> <br><%=detail.name%></li>
-                <li class="list-group-item"><span style="font-weight: bold;">Jadwal Tayang:</span> <br><%=detail.tayang%></li>
+                <li class="list-group-item"><span style="font-weight: bold;">Jadwal Tayang:</span> <br><%=detail.tayang%> - <%=detail.end%></li>
+                <li class="list-group-item"><span style="font-weight: bold;">Jumlah Tiket:</span> <br><%=detail.maxtickets%></li>
                 <li class="list-group-item"><button type="button" class="btn btn-dark" onclick="window.location.href='/movies/<%=detail.id%>/book'">BOOK A TICKET</button></li>
             </ul>
         </div>

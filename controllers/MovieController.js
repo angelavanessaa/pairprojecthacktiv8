@@ -33,5 +33,8 @@ class Controller {
                 res.render('./movie/addmovie', {msg: err.errors})
             })
     }
+    static book(req, res){
+        res.send(req.params.id)
+    }
 }
 module.exports = Controller

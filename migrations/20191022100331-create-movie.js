@@ -27,6 +27,9 @@ module.exports = {
       },
       end: {
         type: Sequelize.DATE
+      },
+      price: {
+        type: Sequelize.INTEGER
       }
     });
   },

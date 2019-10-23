@@ -15,6 +15,9 @@ class UserController {
                 res.send(err);
             });
     }
+    static login(req, res){
+        res.render('./user/login')
+    }
 }
 
 module.exports = UserController;

@@ -20,6 +20,9 @@ app.get('/movies/add', MovieController.addForm)
 app.post('/movies/add', MovieController.add)
 //Movie detail:
 app.get('/movies/:id', MovieController.movieDetail)
+app.get('/movies/:id/book', (req, res)=>{
+    res.send("book disini")
+})
 // === = = === //
 
 // === Cinema === //

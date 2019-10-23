@@ -4,6 +4,7 @@ class Controller {
     static homepage(req, res){
         Movie.findAll()
             .then(movies=>{
+                // res.send(movies)
                 res.render('app', {movie: movies}) 
             })
     }

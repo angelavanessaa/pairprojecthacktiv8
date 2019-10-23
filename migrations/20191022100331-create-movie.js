@@ -21,6 +21,12 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      maxtickets: {
+        type: Sequelize.INTEGER
+      },
+      end: {
+        type: Sequelize.DATE
       }
     });
   },

@@ -9,7 +9,7 @@
 <body>
     <%- include('./partials/navbar.ejs') %>
     
-    <h1 class="text-center">COMING SOON</h1>
+    <h1 class="text-center pt-3 pb-5">COMING SOON</h1>
 
     <div class="bd-example">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -51,17 +51,22 @@
             </a>
         </div>
     </div>
-    <br>
-    <div class="d-flex justify-content-center">
-        <%for(let i = 0; i < movie.length; i++){%>
-            <div class="card" style="width: 18rem;">
-                <a href="/movies/<%=movie[i].id%>"><img src="<%=movie[i].image%>" class="card-img-top" alt="..."></a>
-                <div class="card-body">
-                    <h5 class="card-title"><%=movie[i].name%></h5>
-                </div>
-            </div>
-        <%}%>
+    <div class="container pt-5">
+        <h1 class="text-center pt-3 pb-5">NOW PLAYING</h1>
+        <div class="row">
+            <%for(let i = 0; i < movie.length; i++){%>
+                    <div class="col-4 pt-5">
+                            <div class="card" style="width: 18rem;">
+                                    <a href="/movies/<%=movie[i].id%>"><img src="<%=movie[i].image%>" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%=movie[i].name%></h5>
+                                    </div>
+                                </div>
+                    </div>
+            <%}%>
+        </div>
     </div>
+    <%- include('./partials/footer.ejs') %>
 </body>
 <script type="text/javascript">
     $('.carousel').carousel({

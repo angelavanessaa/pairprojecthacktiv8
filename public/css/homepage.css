@@ -2,6 +2,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.navbar {
+    border-bottom: 1px solid black;
+}
+
 .bg-light {
     background-color: white !important;
 }
@@ -9,4 +13,9 @@ body {
 .carousel-inner{  
     width:100%;
     max-height: 80% !important;
+}
+
+.footer {
+    background-color: #94A6BB;
+    color: white;
 }

@@ -5,7 +5,12 @@ class Controller {
         Movie.findAll()
             .then(movies=>{
                 res.render('app', {movie: movies}) 
-                // res.send(movies)
+            })
+    }
+    static movieDetail(req, res){
+        Movie.findByPk(req.params.id)
+            .then(detail=>{
+                res.render('./movie/movieDetails', {detail})
             })
     }
     static show(req, res){

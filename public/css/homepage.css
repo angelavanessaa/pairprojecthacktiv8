@@ -19,3 +19,14 @@ body {
     background-color: #94A6BB;
     color: white;
 }
+
+
+.front-indicator {
+    width: 240px;
+    margin: 5px 32px 15px 32px;
+    background-color: #f6f6f6;
+    color: #adadad;
+    text-align: center;
+    padding: 3px;
+    border-radius: 5px;
+}

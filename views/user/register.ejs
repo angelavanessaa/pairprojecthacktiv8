@@ -8,17 +8,20 @@
 </head>
 <body>
     <%- include('../partials/navbar.ejs') %>
-    <form method="POST" action="/register">
-        Full Name:<br>
-        <input type="text" name="fullname">
-        <br>
-        Email:<br>
-        <input type="text" name="email">
-        <br>
-        Password:<br>
-        <input type="password" name="password">
-        <br><br>
-        <input type="submit" value="Register User">
-    </form>
+    <div class="container p-5">
+        <h1 class="text-center pb-4">Register Account</h1>
+        <form method="POST" action="/register">
+            Full Name:<br>
+            <input type="text" name="fullname" class="form-control" >
+            <br>
+            Email:<br>
+            <input type="text" name="email" class="form-control" >
+            <br>
+            Password:<br>
+            <input type="password" name="password" class="form-control" >
+            <br><br>
+            <button type="submit" class="btn btn-primary">Register User</button>
+        </form>
+    </div>
 </body>
 </html>

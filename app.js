@@ -7,6 +7,7 @@ const CinemaController = require("./controllers/CinemaController")
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'))
 
 app.get('/', (req, res) => { res.render('app'); })
 app.get('/register', UserController.register);

@@ -4,8 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register User</title>
+    <%- include('../partials/head.ejs') %>
 </head>
 <body>
+    <%- include('../partials/navbar.ejs') %>
     <form method="POST" action="/register">
         Full Name:<br>
         <input type="text" name="fullname">

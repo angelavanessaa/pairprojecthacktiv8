@@ -1,6 +1,13 @@
 const Movie = require('../models').Movie
 
 class Controller {
+    static homepage(req, res){
+        Movie.findAll()
+            .then(movies=>{
+                res.render('app', {movie: movies}) 
+                // res.send(movies)
+            })
+    }
     static show(req, res){
         Movie.findAll()
             .then(movies=>{

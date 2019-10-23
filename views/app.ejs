@@ -51,6 +51,16 @@
             </a>
         </div>
     </div>
+    <div class="d-flex justify-content-center">
+        <%for(let i = 0; i < movie.length; i++){%>
+            <div class="card" style="width: 18rem;">
+                <a href="/movies/<%=movie[i].id%>"><img src="<%=movie[i].image%>" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title"><%=movie[i].name%></h5>
+                </div>
+            </div>
+        <%}%>
+    </div>
 </body>
 <script type="text/javascript">
     $('.carousel').carousel({

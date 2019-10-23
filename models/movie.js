@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
   class Movie extends Model{}
   Movie.init({
     name: DataTypes.STRING,
-    tayang: DataTypes.DATE
+    tayang: DataTypes.DATE,
+    image: DataTypes.STRING
   }, {sequelize})
   Movie.associate = function(models) {
     // associations can be defined here

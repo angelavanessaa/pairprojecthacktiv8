@@ -12,5 +12,8 @@ class Controller {
                 res.render('./cinema/add', {msg: err})
             })
     }
+    static delete(req, res){
+        // Cinema.delete(where: {id: req.params.id})
+    }
 }
 module.exports = Controller

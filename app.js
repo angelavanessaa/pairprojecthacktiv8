@@ -13,9 +13,9 @@ app.get('/register', UserController.register);
 app.post('/register', UserController.create);
 
 // === Movie === //
-app.get('/movie', MovieController.show)
-app.get('/movie/add', MovieController.addForm)
-app.post('/movie/add', MovieController.add)
+app.get('/movies', MovieController.show)
+app.get('/movies/add', MovieController.addForm)
+app.post('/movies/add', MovieController.add)
 // === = = === //
 
 // === Cinema === //

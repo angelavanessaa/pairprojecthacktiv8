@@ -4,6 +4,7 @@ const PORT = 3000;
 const UserController = require('./controllers/UserController');
 const MovieController = require('./controllers/MovieController')
 const CinemaController = require("./controllers/CinemaController")
+const CinemaMovieController = require('./controllers/CinemaMovieController')
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
@@ -20,9 +21,8 @@ app.get('/movies/add', MovieController.addForm)
 app.post('/movies/add', MovieController.add)
 //Movie detail:
 app.get('/movies/:id', MovieController.movieDetail)
-app.get('/movies/:id/book', (req, res)=>{
-    res.send("book disini")
-})
+app.get('/movies/:id/book', CinemaMovieController.index)
+app.post('/movies/:id/book', CinemaMovieController.create)
 // === = = === //
 
 // === Cinema === //

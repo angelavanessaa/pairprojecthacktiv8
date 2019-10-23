@@ -14,6 +14,9 @@ module.exports = {
       MovieId: {
         type: Sequelize.INTEGER
       },
+      UserId: {
+        type: Sequelize.INTEGER
+      },
       booking_code: {
         type: Sequelize.INTEGER
       },

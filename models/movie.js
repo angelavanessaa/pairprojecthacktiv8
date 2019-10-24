@@ -1,7 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
-  class Movie extends Model{}
+  class Movie extends Model{
+    getTheatre() {
+      return 'Theatre ' + this.cinemaNumber;
+    }
+  }
   Movie.init({
     name: DataTypes.STRING,
     tayang: DataTypes.DATE,

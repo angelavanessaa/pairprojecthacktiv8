@@ -7,6 +7,7 @@ class TransactionController {
         let movieData;
         let seatMap;
         let unavailableSeats = [];
+        let user = req.session.user;
         Movie
             .findByPk(req.params.id)
             .then (movie => {
@@ -22,7 +23,7 @@ class TransactionController {
                 for (let i = 0; i < tickets.length; i++) {
                     unavailableSeats.push(tickets[i].dataValues.seatNumber)
                 }
-                res.render('movie/bookMovie', { movieData, seatMap, unavailableSeats })
+                res.render('movie/bookMovie', { movieData, seatMap, unavailableSeats, user})
             })
     }
 

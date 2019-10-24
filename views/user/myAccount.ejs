@@ -26,8 +26,10 @@
                         <%}%>
                         <li class="list-group-item">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Booking</li>
-                                <li class="list-group-item">tes</li>
+                                <li class="list-group-item">Booking:</li>
+                                <%for(let i = 0; i < book.length; i++){%>
+                                    <li class="list-group-item"><a href=""><%=book[i].booking_code%></a></li>
+                                <%}%>
                             </ul>
                         </li>
                     </ul>

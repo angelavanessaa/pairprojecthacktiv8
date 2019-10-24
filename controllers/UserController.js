@@ -1,6 +1,6 @@
 const User = require('../models').User;
 const bcrypt = require('../helpers/bcrypt');
-const Movie = 
+const Transaction = require('../models').Transaction 
 
 class UserController {
     static register(req, res) {
@@ -9,8 +9,10 @@ class UserController {
     }
     static myAccount(req, res){
         let user = req.session.user
-        // res.send(req.session.isAdmin)
-        res.render('user/myAccount', {user})
+        Transaction.findAll({where: {UserId: user.id}})
+            .then(tickets=>{
+                res.render('user/myAccount', {user: user, book: tickets})
+            })
     }
 
     static create(req, res) {

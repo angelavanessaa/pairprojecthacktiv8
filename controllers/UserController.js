@@ -17,7 +17,8 @@ class UserController {
             });
     }
     static login(req, res){
-        res.render('./user/login')
+        let user = null;
+        res.render('./user/login', {user})
     }
 
     static attemptLogin(req, res) {

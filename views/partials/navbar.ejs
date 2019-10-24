@@ -13,7 +13,20 @@
           <a class="nav-link" href="/movies">Now Playing</a>
         </li>
       </ul>
-        <a href="/register" class="btn  my-2 my-sm-0">Register</a>
-        <a href="/login" class="btn  my-2 my-sm-0">Login</a>
+
+        <% if (user) { %>
+          <li class="nav-item dropdown" style="list-style-type: none;">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"><%= user.name %> </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+              <a class="dropdown-item" href="#">My account</a>
+              <a class="dropdown-item" href="#">Log out</a>
+            </div>
+          </li>
+        <% } else { %>
+          <a href="/register" class="btn  my-2 my-sm-0">Register</a>
+          <a href="/login" class="btn  my-2 my-sm-0">Login</a>
+        <% } %>
+       
     </div>
 </nav>

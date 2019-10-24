@@ -7,7 +7,11 @@ class TransactionController {
         let movieData;
         let seatMap;
         let unavailableSeats = [];
-        let user = req.session.user;
+        let user;
+        if(!req.session.user){
+            res.render('user/login', {err: "Login terlebih dahulu", user})
+        }
+        user = req.session.user;
         Movie
             .findByPk(req.params.id)
             .then (movie => {

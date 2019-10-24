@@ -36,11 +36,11 @@ app.get('/movies/add', function(req, res, next){
       res.render('./movie/addmovie', {user})
     }
     else{
-      res.redirect('/')
+      res.render('./user/login', {err: "Only ADMIN can do this :)", user})
     }
   }
   else{
-    res.redirect('/')
+    res.render('./user/login', {err: "Please login first!", user})
   }
 })
 

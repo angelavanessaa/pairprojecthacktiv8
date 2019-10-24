@@ -21,14 +21,15 @@
                 <div class="card" style="width: 15.5rem;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><%=user.name%></li>
+                        <li class="list-group-item">Ticket Booked</li>
                         <%if(user.isAdmin){%>
-                        <li class="list-group-item"><button type="button" class="btn btn-primary" onclick="window.location.href = '/movies/add''">Add Movie</button></li>
+                        <li class="list-group-item"><button type="button" class="btn btn-primary" onclick="window.location.href='/movies/add'">Add Movie</button></li>
                         <%}%>
                         <li class="list-group-item">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Booking:</li>
                                 <%for(let i = 0; i < book.length; i++){%>
-                                    <li class="list-group-item"><a href=""><%=book[i].booking_code%></a></li>
+                                    <li class="list-group-item"><a href="http://localhost:3000/u/1/<%=book[i].booking_code%>"><%=book[i].booking_code%></a></li>
                                 <%}%>
                             </ul>
                         </li>

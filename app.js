@@ -28,7 +28,22 @@ app.get('/myAccount', UserController.myAccount)
 
 // === Movie === //
 app.get('/movies', MovieController.show)
-app.get('/movies/add', MovieController.addForm)
+
+app.get('/movies/add', function(req, res, next){
+  let user = req.session.user
+  if(req.session.user){
+    if(req.session.user.isAdmin){
+      res.render('./movie/addmovie', {user})
+    }
+    else{
+      res.redirect('/')
+    }
+  }
+  else{
+    res.redirect('/')
+  }
+})
+
 app.post('/movies/add', MovieController.add)
 app.get('/movies/:id/edit', MovieController.edit)
 app.post('/movies/edit', MovieController.editpost)

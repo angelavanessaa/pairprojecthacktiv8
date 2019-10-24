@@ -52,14 +52,14 @@
         <h1 class="text-center pt-3 pb-5">NOW PLAYING</h1>
         <div class="row">
             <%for(let i = 0; i < movie.length; i++){%>
-                    <div class="col-4 pt-5">
-                            <div class="card" style="width: 18rem;">
-                                    <a href="/movies/<%=movie[i].id%>"><img src="<%=movie[i].image%>" class="card-img-top" alt="..."></a>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><%=movie[i].name%></h5>
-                                    </div>
-                                </div>
+                <div class="col-4 pt-5">
+                    <div class="card" style="width: 18rem;">
+                        <a href="/movies/<%=movie[i].id%>"><img src="<%=movie[i].image%>" class="card-img-top" alt="..."></a>
+                        <div class="card-body">
+                            <h5 class="card-title"><%=movie[i].name%></h5>
+                        </div>
                     </div>
+                </div>
             <%}%>
         </div>
     </div>

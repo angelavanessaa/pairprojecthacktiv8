@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
-  class Transaction extends Model{}
+  class Transaction extends Model{
+  }
   Transaction.init({
     MovieId: DataTypes.INTEGER,
     UserId : DataTypes.INTEGER,

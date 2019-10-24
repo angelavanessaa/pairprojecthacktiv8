@@ -26,9 +26,11 @@ class Controller {
     }
     static addForm(req, res){
         let user = req.session.user
+        // res.send(req.session.user)
         res.render('./movie/addmovie', {user})
     }
     static add(req, res){
+        let user = req.session.user
         Movie.create(req.body)
             .then(succed=>{
                 res.redirect('/movies')

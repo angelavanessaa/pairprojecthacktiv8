@@ -1,5 +1,6 @@
 const Transaction = require('../models').Transaction;
 const Movie = require('../models').Movie;
+let id = 0
 
 class TransactionController {
     static index(req, res) {
@@ -48,8 +49,10 @@ class TransactionController {
                 res.send({ redirect: `http://localhost:3000/u/1/${code}` })
             })
     }
-
+ 
     static showBooking(req, res) {
+        let ticketData = []
+        let id = 0
         Transaction.findAll({
             where : {
                 UserId : req.params.userId,
@@ -57,7 +60,11 @@ class TransactionController {
             }
         })
         .then (data => {
-            res.render('movie/bookMovieSuccess', {data})
+            ticketData = data
+            return Movie.findByPk(data[0].MovieId)
+        })
+        .then(movie=>{
+            res.render('movie/ticket', {ticket: ticketData, movie: movie.name, cnumber: movie.cinemaNumber})
         })
         .catch( err => {
             console.log(err)

@@ -1,5 +1,6 @@
 const Movie = require('../models').Movie;
 const Cinema = require('../models').Cinema;
+let params = 0
 
 class Controller {
     static homepage(req, res){
@@ -36,6 +37,20 @@ class Controller {
     }
     static book(req, res){
         res.send(req.params.id)
+    }
+    static edit(req, res){
+        params = req.params.id
+        Movie.findByPk(req.params.id)
+            .then(movie=>{
+                // res.send(movie)
+                res.render('./movie/movieedit', {detail: movie})
+            })
+    }
+    static editpost(req, res){
+        Movie.update(req.body, {where: {id: temp}})
+            .then(succed=>{
+                res.redirect('/movies/')
+            })
     }
 }
 module.exports = Controller

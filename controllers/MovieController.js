@@ -5,22 +5,19 @@ class Controller {
     static homepage(req, res){
         Movie.findAll()
             .then(movies=>{
-                let user = req.session.user;
-                res.render('app', {movie: movies, user}) 
+                res.render('app', {movie: movies}) 
             })
     }
     static movieDetail(req, res){
         Movie.findByPk(req.params.id, {include : Cinema})
             .then(detail=>{
-                let user = req.session.user;
-                res.render('./movie/movieDetails', {detail, user})
+                res.render('./movie/movieDetails', {detail})
             })
     }
     static show(req, res){
         Movie.findAll()
             .then(movies=>{
-                let user = req.session.user;
-                res.render('./movie/showMovies', {movie: movies, user})
+                res.render('./movie/showMovies', {movie: movies})
             })
     }
     static addForm(req, res){

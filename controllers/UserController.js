@@ -1,5 +1,6 @@
 const User = require('../models').User;
 const bcrypt = require('../helpers/bcrypt');
+const Movie = 
 
 class UserController {
     static register(req, res) {
@@ -42,6 +43,8 @@ class UserController {
                         email : data.email,
                         isAdmin : data.isAdmin
                     }
+                    let hour = 3600000;
+                    req.session.cookie.expires = new Date(Date.now() + hour);
                     res.redirect('/')
                 } else {
                     res.send('wrong password')
@@ -49,6 +52,11 @@ class UserController {
             })
         
         
+    }
+
+    static logout(req, res) {
+        req.session.destroy();
+        res.redirect('/');
     }
 }
 

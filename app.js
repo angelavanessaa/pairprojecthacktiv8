@@ -22,6 +22,7 @@ app.get('/register', UserController.register);
 app.post('/register', UserController.create);
 app.get('/login', UserController.login)
 app.post('/login', UserController.attemptLogin)
+app.get('/logout', UserController.logout)
 app.get('/', MovieController.homepage)
 app.get('/myAccount', UserController.myAccount)
 

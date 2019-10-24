@@ -13,8 +13,9 @@ class Controller {
     static movieDetail(req, res){
         Movie.findByPk(req.params.id, {include : Cinema})
             .then(detail=>{
+                let theatre = detail.getTheatre();
                 let user = req.session.user
-                res.render('./movie/movieDetails', {detail, user})
+                res.render('./movie/movieDetails', {detail, user, theatre})
             })
     }
     static show(req, res){

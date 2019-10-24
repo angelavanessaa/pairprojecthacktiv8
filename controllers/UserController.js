@@ -3,7 +3,8 @@ const bcrypt = require('../helpers/bcrypt');
 
 class UserController {
     static register(req, res) {
-        res.render('user/register');
+        let user = null;
+        res.render('user/register', {user});
     }
 
     static create(req, res) {

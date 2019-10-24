@@ -23,6 +23,7 @@ app.post('/register', UserController.create);
 app.get('/login', UserController.login)
 app.post('/login', UserController.attemptLogin)
 app.get('/', MovieController.homepage)
+app.get('/myAccount', UserController.myAccount)
 
 // === Movie === //
 app.get('/movies', MovieController.show)

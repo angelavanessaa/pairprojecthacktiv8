@@ -6,6 +6,11 @@ class UserController {
         let user = null;
         res.render('user/register', {user});
     }
+    static myAccount(req, res){
+        let user = req.session.user
+        // res.send(req.session.isAdmin)
+        res.render('user/myAccount', {user})
+    }
 
     static create(req, res) {
         User

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%- include('../partials/head')%>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/navbar')%>
+    <br>
+    <br>
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <%if(user.isAdmin){%>
+                <span class="badge badge-pill badge-primary">ADMIN</span>
+            <%}%>
+            <img class="card-img-top" src="https://img.icons8.com/plasticine/2x/user.png" alt="Card image cap">
+            <div class="card-body">
+                <div class="card" style="width: 15.5rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><%=user.name%></li>
+                        <%if(user.isAdmin){%>
+                        <li class="list-group-item"><button type="button" class="btn btn-primary" onclick="window.location.href = '/movies/add''">Add Movie</button></li>
+                        <%}%>
+                        <li class="list-group-item">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Booking</li>
+                                <li class="list-group-item">tes</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

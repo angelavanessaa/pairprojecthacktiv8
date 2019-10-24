@@ -5,5 +5,12 @@
     "database": "HacktivTheater",
     "host": "127.0.0.1",
     "dialect": "postgres"
+  },
+  "production": {
+    "username": "oilzuznarxukfj",
+    "password": "2ae454189621f7b3b8ee0d25ac7fa6f082e62e73045c1af1a24e3229e07be5a2",
+    "database": "d97gu4uah4kcuj",
+    "host": "ec2-54-243-239-199.compute-1.amazonaws.com",
+    "dialect": "postgres"
   }
 }

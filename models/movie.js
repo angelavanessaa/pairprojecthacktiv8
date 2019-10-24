@@ -8,11 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     image: DataTypes.STRING,
     maxtickets: DataTypes.INTEGER,
     end: DataTypes.DATE,
+    cinemaNumber: DataTypes.INTEGER,
     price: DataTypes.INTEGER
   }, {sequelize})
   Movie.associate = function(models) {
     // associations can be defined here
-    Movie.belongsToMany(models.Cinema, {through: models.CinemaMovie})
   };
   return Movie;
 };

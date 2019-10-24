@@ -1,23 +1,19 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model;
-  const hashPassword = require('../helpers/hashPassword');
+  const bcrypt = require('../helpers/bcrypt');
 
   class User extends Model {}
   User.init({
     fullname: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    salt: DataTypes.STRING,
     isAdmin: DataTypes.BOOLEAN
   }, { 
     hooks : {
     beforeCreate: function(user, options) {
       user.setDataValue('isAdmin', 'false');
-
-      let hashedPass = hashPassword(user.password);
-      user.setDataValue('password', hashedPass.hash);
-      user.setDataValue('salt', hashedPass.salt);
+      user.setDataValue('password', bcrypt.encrypt(user.password));
     }
   },
   sequelize });

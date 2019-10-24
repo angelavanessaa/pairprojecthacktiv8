@@ -30,7 +30,10 @@ module.exports = {
       },
       price: {
         type: Sequelize.INTEGER
-      }
+      },
+      cinemaNumber : {
+        type: Sequelize.INTEGER
+      },
     });
   },
   down: (queryInterface, Sequelize) => {

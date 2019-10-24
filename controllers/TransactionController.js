@@ -1,7 +1,7 @@
-const CinemaMovie = require('../models').CinemaMovie;
+const Transaction = require('../models').Transaction;
 const Movie = require('../models').Movie;
 
-class CinemaMovieController {
+class TransactionController {
     static index(req, res) {
         let movieData;
         let seatMap;
@@ -10,8 +10,8 @@ class CinemaMovieController {
             .findByPk(req.params.id)
             .then (movie => {
                 movieData = movie;
-                seatMap = CinemaMovieController.generateSeatMap(movie);
-                return CinemaMovie.findAll({
+                seatMap = TransactionController.generateSeatMap(movie);
+                return Transaction.findAll({
                     where : {
                         MovieId : req.params.id
                     }
@@ -31,7 +31,7 @@ class CinemaMovieController {
 
     static create(req, res) {
         let data = [];
-        let code = CinemaMovieController.generateBookingCode();
+        let code = TransactionController.generateBookingCode();
         for (let i = 0; i < req.body.orders.length; i++) {
             let seat = req.body.orders[i];
             let newObj = {
@@ -44,14 +44,14 @@ class CinemaMovieController {
             data.push(newObj)
         }
 
-        CinemaMovie.bulkCreate(data)
+        Transaction.bulkCreate(data)
             .then( () => {
                 res.send({ redirect: `http://localhost:3000/u/1/${code}` })
             })
     }
 
     static showBooking(req, res) {
-        CinemaMovie.findAll({
+        Transaction.findAll({
             where : {
                 UserId : req.params.userId,
                 booking_code : req.params.bookingCode
@@ -89,4 +89,4 @@ class CinemaMovieController {
     }
 }
 
-module.exports = CinemaMovieController;
+module.exports = TransactionController;

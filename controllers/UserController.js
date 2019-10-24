@@ -9,7 +9,7 @@ class UserController {
         User
             .create(req.body)
             .then( user => {
-                res.send(user);
+                res.redirect('/');
             })
             .catch( err => {
                 res.send(err);

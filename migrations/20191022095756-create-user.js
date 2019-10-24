@@ -17,9 +17,6 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      salt: {
-        type: Sequelize.STRING
-      },
       isAdmin: {
         type: Sequelize.BOOLEAN
       },

@@ -1,4 +1,5 @@
-const Movie = require('../models').Movie
+const Movie = require('../models').Movie;
+const Cinema = require('../models').Cinema;
 
 class Controller {
     static homepage(req, res){
@@ -9,7 +10,7 @@ class Controller {
             })
     }
     static movieDetail(req, res){
-        Movie.findByPk(req.params.id)
+        Movie.findByPk(req.params.id, {include : Cinema})
             .then(detail=>{
                 res.render('./movie/movieDetails', {detail})
             })

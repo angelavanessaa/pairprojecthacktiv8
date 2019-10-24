@@ -9,7 +9,8 @@ let data = [
     image : "https://i.redd.it/y5i92dqjh3m31.jpg",
     createdAt : new Date(),
     updatedAt : new Date(),
-    price : 20
+    price : 20,
+    cinemaNumber : 1
   },
   {
     name : "Maleficient",
@@ -19,7 +20,8 @@ let data = [
     image : "https://cdn.traileraddict.com/content/walt-disney-pictures/maleficent-14.jpg",
     createdAt : new Date(),
     updatedAt : new Date(),
-    price : 40
+    price : 40,
+    cinemaNumber : 2
   },
   {
     name : "Ready Player One",
@@ -29,7 +31,8 @@ let data = [
     image : "https://cdn.shopify.com/s/files/1/0747/3829/products/mL1483_1024x1024.jpg?v=1520444451",
     createdAt : new Date(),
     updatedAt : new Date(),
-    price : 30
+    price : 30,
+    cinemaNumber : 3
   },
   {
     name : "Avengers : Infinity War",
@@ -39,7 +42,8 @@ let data = [
     image : "https://images-na.ssl-images-amazon.com/images/I/A1t8xCe9jwL._SL1500_.jpg",
     createdAt : new Date(),
     updatedAt : new Date(),
-    price : 50
+    price : 50,
+    cinemaNumber : 4
   },
   {
     name : "Walter Mitty",
@@ -49,7 +53,8 @@ let data = [
     image : "https://cdn3.movieweb.com/i/photo/MLI2b2YllbPYZCm0Z61tvKJbuhj4cY/798:50/default.jpg",
     createdAt : new Date(),
     updatedAt : new Date(),
-    price : 20
+    price : 20,
+    cinemaNumber : 5
   }
 ]
 

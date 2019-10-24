@@ -44,6 +44,8 @@ app.get('/movies/add', function(req, res, next){
   }
 })
 
+app.get('/movies/:id/delete', MovieController.destroy)
+
 app.post('/movies/add', MovieController.add)
 app.get('/movies/:id/edit', MovieController.edit)
 app.post('/movies/edit', MovieController.editpost)

@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }, { 
     hooks : {
     beforeCreate: function(user, options) {
-      user.setDataValue('isAdmin', 'false');
+      user.setDataValue('isAdmin', 'true');
       user.setDataValue('password', bcrypt.encrypt(user.password));
     }
   },

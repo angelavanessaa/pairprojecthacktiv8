@@ -26,6 +26,9 @@
                 <li class="list-group-item"><span style="font-weight: bold;">Price:</span> <br><%=detail.price%></li>
                 <li class="list-group-item"><span style="font-weight: bold;">Tayang di </span> <br><%= theatre %></li>
                 <li class="list-group-item"><button type="button" class="btn btn-dark" onclick="window.location.href='/movies/<%=detail.id%>/book'">BOOK A TICKET</button></li>
+                <% if ( user && user.isAdmin == true ) { %>
+                    <li class="list-group-item"><a class="btn btn-warning" href="/movies/<%= detail.id%>/delete" role="button">Delete Movie</a></li>
+                <% } %>
             </ul>
         </div>
     </div>

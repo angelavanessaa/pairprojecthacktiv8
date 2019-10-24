@@ -67,5 +67,14 @@ class Controller {
                 res.redirect('/movies/')
             })
     }
+
+    static destroy(req, res) {
+        Movie.destroy({
+            where : {
+                id : req.params.id
+            }
+        })
+        .then(() => res.redirect('/movies'))
+    }
 }
 module.exports = Controller

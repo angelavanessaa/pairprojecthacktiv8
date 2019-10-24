@@ -1,6 +1,7 @@
 const Transaction = require('../models').Transaction;
 const Movie = require('../models').Movie;
 let id = 0
+const PROD_URL = "https://rocky-river-26699.herokuapp.com";
 
 class TransactionController {
     static index(req, res) {
@@ -27,7 +28,7 @@ class TransactionController {
                 for (let i = 0; i < tickets.length; i++) {
                     unavailableSeats.push(tickets[i].dataValues.seatNumber)
                 }
-                res.render('movie/bookMovie', { movieData, seatMap, unavailableSeats, user})
+                res.render('movie/bookMovie', { movieData, seatMap, unavailableSeats, user, PROD_URL})
             })
     }
 
@@ -52,7 +53,8 @@ class TransactionController {
 
         Transaction.bulkCreate(data)
             .then( () => {
-                res.send({ redirect: `http://localhost:3000/u/1/${code}` })
+                // res.send({ redirect: `http://localhost:3000/u/1/${code}` })
+                res.send({ redirect: `${PROD_URL}/u/1/${code}` })
             })
     }
  

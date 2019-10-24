@@ -41,6 +41,7 @@
   let movieData = <%- JSON.stringify(movieData) %>
   let map = <%- JSON.stringify(seatMap) %>
   let notAvail = <%- JSON.stringify(unavailableSeats) %>
+  let production = <%- JSON.stringify(PROD_URL) %>
 
   let orders = [];
   $(document).ready(function() {
@@ -127,7 +128,8 @@
       console.log(orders)
         $.ajax({
           method: "POST",
-          url: "http://localhost:3000/movies/9/book",
+          url: `${production}/movies/9/book`,
+          // url: "http://localhost:3000/movies/9/book",
           data: { orders, movieData },
           success: function(data) {
             if(data.redirect) {

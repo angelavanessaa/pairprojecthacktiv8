@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%- include('../partials/head')%>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/navbar')%>
+    <div class="jumbotron">
+        <h3><%=detail.name%>  <span class="badge badge-pill badge-primary">Now Playing</span><span class="badge badge-pill badge-danger">Edit page</span></h3>
+    </div>
+    <div class="d-flex flex-row">
+        <div class="p-2">
+            <ul class="list-group" style="align-items: center;">
+                <li class="list-group-item"><img src="<%=detail.image%>" alt=""></li>
+            </ul>
+        </div>
+        <div class="p-2">
+            <ul class="list-group list-group-flush">
+            <form action="" method="post">
+                <li class="list-group-item"><span style="font-weight: bold;">Title:</span><br><input type="text" name="name" value="<%=detail.name%>"></li>
+                <li class="list-group-item"><span style="font-weight: bold;">Jadwal Tayang:</span> <br><input type="date" name="tayang" value="<%=detail.tayang%>"> - <input type="date" name="end" value="<%=detail.end%>"></li>
+                <li class="list-group-item"><span style="font-weight: bold;">Jumlah Tiket:</span> <br><input type="number" value="<%=detail.maxtickets%>"></li>
+                <li class="list-group-item"><span style="font-weight: bold;">Price:</span> <br><input type="number" value="<%=detail.price%>"></li>
+                <li class="list-group-item"><button type="button" class="btn btn-dark" onclick="window.location.href='/movies/<%=detail.id%>/edit'">Submit</button></li>
+            </form>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

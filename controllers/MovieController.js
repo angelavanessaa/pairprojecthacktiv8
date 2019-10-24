@@ -49,7 +49,7 @@ class Controller {
     static editpost(req, res){
         Movie.update(req.body, {where: {id: temp}})
             .then(succed=>{
-                res.redirect('/movies/')
+                res.redirect('/movies')
             })
     }
 }

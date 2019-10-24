@@ -27,7 +27,8 @@ class UserController {
     }
     static login(req, res){
         let user = null;
-        res.render('./user/login', {user})
+        let err
+        res.render('./user/login', {user, err})
     }
 
     static attemptLogin(req, res) {

@@ -13,11 +13,9 @@
 <form class="text-center border border-light p-5" action="/login" method="POST">
 
         <p class="h4 mb-4">Sign in</p>
-        <%if(err){%>
-            <div class="alert alert-danger" role="alert">
-                <%=err%>
-            </div>
-        <%}%>
+        <div class="alert alert-danger" role="alert">
+            <%=err%>
+        </div>
         <!-- Email -->
         <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
         <!-- Password -->

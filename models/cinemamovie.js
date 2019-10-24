@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     CinemaId: DataTypes.INTEGER,
     MovieId: DataTypes.INTEGER,
     UserId : DataTypes.INTEGER,
-    booking_code: DataTypes.INTEGER,
+    booking_code: DataTypes.STRING,
     seatNumber: DataTypes.STRING
   }, {sequelize})
   CinemaMovie.associate = function(models) {

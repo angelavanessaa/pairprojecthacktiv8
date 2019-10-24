@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       booking_code: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       seatNumber: {
         type: Sequelize.STRING

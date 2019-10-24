@@ -35,7 +35,6 @@ class TransactionController {
         for (let i = 0; i < req.body.orders.length; i++) {
             let seat = req.body.orders[i];
             let newObj = {
-                CinemaId : 1,
                 MovieId : req.body.movieData.id,
                 UserId : 1,
                 booking_code: code,

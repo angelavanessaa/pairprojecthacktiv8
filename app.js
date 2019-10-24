@@ -23,6 +23,7 @@ app.post('/movies/add', MovieController.add)
 app.get('/movies/:id', MovieController.movieDetail)
 app.get('/movies/:id/book', CinemaMovieController.index)
 app.post('/movies/:id/book', CinemaMovieController.create)
+app.get('/u/:userId/:bookingCode', CinemaMovieController.showBooking)
 // === = = === //
 
 // === Cinema === //

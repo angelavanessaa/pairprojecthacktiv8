@@ -3,9 +3,9 @@ const Movie = require('../models').Movie;
 
 class CinemaMovieController {
     static index(req, res) {
-        Movie.findOne(req.param.id)
+        Movie.findByPk(req.params.id)
             .then( movie => {
-                let seatMap = CinemaMovieController.generateSeatMap(movie.dataValues);
+                let seatMap = CinemaMovieController.generateSeatMap(movie);
                 res.render('movie/bookMovie', { movie, seatMap })
             })
             .catch( err => {
@@ -14,23 +14,44 @@ class CinemaMovieController {
     }
 
     static create(req, res) {
+        let data = [];
+        let code = 123123;
         for (let i = 0; i < req.body.orders.length; i++) {
-            let order = req.body.orders[i];
-            CinemaMovie.create({
+            let seat = req.body.orders[i];
+            let newObj = {
                 CinemaId : 1,
                 MovieId : req.body.movieData.id,
                 UserId : 1,
-                booking_code: 'asdasda',
-                seatNumber : order
-            })
+                booking_code: code,
+                seatNumber : seat
+            };
+            data.push(newObj)
         }
-        // console.log(req.body)
-        res.send({ redirect: 'http://localhost:3000/' })
+
+        CinemaMovie.bulkCreate(data)
+            .then( () => {
+                res.send({ redirect: `http://localhost:3000/u/1/${code}` })
+            })
+    }
+
+    static showBooking(req, res) {
+        CinemaMovie.findAll({
+            where : {
+                UserId : req.params.userId,
+                booking_code : req.params.bookingCode
+            }
+        })
+        .then (data => {
+            res.render('movie/bookMovieSuccess', {data})
+        })
+        .catch( err => {
+            console.log(err)
+        })
     }
 
     static generateSeatMap(movie){
         let map = [];
-        let num = movie.maxtickets;
+        let num = movie.dataValues.maxtickets;
         let str = '';
 
         for (let i = 0; i < num; i++) {

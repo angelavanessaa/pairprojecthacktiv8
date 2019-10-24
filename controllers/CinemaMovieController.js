@@ -3,19 +3,35 @@ const Movie = require('../models').Movie;
 
 class CinemaMovieController {
     static index(req, res) {
-        Movie.findByPk(req.params.id)
-            .then( movie => {
-                let seatMap = CinemaMovieController.generateSeatMap(movie);
-                res.render('movie/bookMovie', { movie, seatMap })
+        let movieData;
+        let seatMap;
+        let unavailableSeats = [];
+        Movie
+            .findByPk(req.params.id)
+            .then (movie => {
+                movieData = movie;
+                seatMap = CinemaMovieController.generateSeatMap(movie);
+                return CinemaMovie.findAll({
+                    where : {
+                        MovieId : req.params.id
+                    }
+                })
             })
-            .catch( err => {
-                res.send(err);
+            .then (tickets => {
+                for (let i = 0; i < tickets.length; i++) {
+                    unavailableSeats.push(tickets[i].dataValues.seatNumber)
+                }
+                res.render('movie/bookMovie', { movieData, seatMap, unavailableSeats })
             })
+    }
+
+    static generateBookingCode() {
+        return Math.round(Math.random() * 100000);
     }
 
     static create(req, res) {
         let data = [];
-        let code = 123123;
+        let code = CinemaMovieController.generateBookingCode();
         for (let i = 0; i < req.body.orders.length; i++) {
             let seat = req.body.orders[i];
             let newObj = {

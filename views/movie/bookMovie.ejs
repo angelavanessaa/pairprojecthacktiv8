@@ -38,8 +38,9 @@
 </body>
 <script type="text/javascript">
   var firstSeatLabel = 1;
-  let movieData = <%- JSON.stringify(movie) %>
+  let movieData = <%- JSON.stringify(movieData) %>
   let map = <%- JSON.stringify(seatMap) %>
+  let notAvail = <%- JSON.stringify(unavailableSeats) %>
 
   let orders = [];
   $(document).ready(function() {
@@ -107,7 +108,7 @@
         });
 
         //let's pretend some seats have already been booked
-        // sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
+        sc.get(notAvail).status('unavailable');
 
     });
 

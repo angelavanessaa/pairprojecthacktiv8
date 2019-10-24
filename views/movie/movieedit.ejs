@@ -18,14 +18,16 @@
                 <li class="list-group-item"><img src="<%=detail.image%>" alt=""></li>
             </ul>
         </div>
+        
         <div class="p-2">
             <ul class="list-group list-group-flush">
-            <form action="" method="post">
+            <form action="/movies/<%= detail.id %>/edit" method="POST">
                 <li class="list-group-item"><span style="font-weight: bold;">Title:</span><br><input type="text" name="name" value="<%=detail.name%>"></li>
                 <li class="list-group-item"><span style="font-weight: bold;">Jadwal Tayang:</span> <br><input type="date" name="tayang" value="<%=detail.tayang%>"> - <input type="date" name="end" value="<%=detail.end%>"></li>
-                <li class="list-group-item"><span style="font-weight: bold;">Jumlah Tiket:</span> <br><input type="number" value="<%=detail.maxtickets%>"></li>
-                <li class="list-group-item"><span style="font-weight: bold;">Price:</span> <br><input type="number" value="<%=detail.price%>"></li>
-                <li class="list-group-item"><button type="button" class="btn btn-dark" onclick="window.location.href='/movies/<%=detail.id%>/edit'">Submit</button></li>
+                <li class="list-group-item"><span style="font-weight: bold;">Jumlah Tiket:</span> <br><input type="number" name="maxtickets" value="<%=detail.maxtickets%>"></li>
+                <li class="list-group-item"><span style="font-weight: bold;">Price:</span> <br><input type="number" name="price" value="<%=detail.price%>"></li>
+                <li class="list-group-item"><span style="font-weight: bold;">Cinema Number:</span> <br><input type="number" name="cinemaNumber" value="<%=detail.cinemaNumber%>"></li>
+                <li class="list-group-item"><button type="submit" class="btn btn-dark">Submit</button></li>
             </form>
             </ul>
         </div>

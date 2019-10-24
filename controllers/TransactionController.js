@@ -32,13 +32,14 @@ class TransactionController {
     }
 
     static create(req, res) {
+        let user = req.session.user
         let data = [];
         let code = TransactionController.generateBookingCode();
         for (let i = 0; i < req.body.orders.length; i++) {
             let seat = req.body.orders[i];
             let newObj = {
                 MovieId : req.body.movieData.id,
-                UserId : 1,
+                UserId : user.id,
                 booking_code: code,
                 seatNumber : seat
             };

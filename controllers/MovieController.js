@@ -25,7 +25,8 @@ class Controller {
             })
     }
     static addForm(req, res){
-        res.render('./movie/addmovie')
+        let user = req.session.user
+        res.render('./movie/addmovie', {user})
     }
     static add(req, res){
         Movie.create(req.body)
@@ -44,13 +45,22 @@ class Controller {
         params = req.params.id
         Movie.findByPk(req.params.id)
             .then(movie=>{
-                // res.send(movie)
                 res.render('./movie/movieedit', {detail: movie, user})
             })
     }
     static editpost(req, res){
-        Movie.update(req.body, {where: {id: temp}})
-            .then(succed=>{
+        let user = req.session.user;
+        let params = req.body;
+        let result = {};
+
+        for (let a in params) {
+            if (params[a] != "") {
+                result[a] = params[a]
+            }
+        }
+
+        Movie.update(result, {where: {id: user.id}})
+            .then(data=>{
                 res.redirect('/movies/')
             })
     }

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER
   }, {sequelize})
   Movie.associate = function(models) {
-    // associations can be defined here
+    Movie.belongsToMany(models.User, {through: models.Transaction});
   };
   return Movie;
 };
